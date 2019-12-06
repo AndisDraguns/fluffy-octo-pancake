@@ -25,7 +25,18 @@ labels = 1      # second element of (X,Y) data tuple
 
 # Warning: the full dataset is over 40GB. Make sure you have enough RAM!
 # This can take a few minutes to load
+# train_data = dict(np.load(open('../musicnet.npz','rb')))
+
+
+np_load_old = np.load
+# modify the default parameters of np.load
+np.load = lambda *a,**k: np_load_old(*a, allow_pickle=True, **k)
+# call load_data with allow_pickle implicitly set to true
 train_data = dict(np.load(open('../musicnet.npz','rb')))
+# restore np.load for future normal usage
+np.load = np_load_old
+
+
 
 
 # split our the test set
