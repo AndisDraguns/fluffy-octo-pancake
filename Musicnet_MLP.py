@@ -1,7 +1,7 @@
 # from https://homes.cs.washington.edu/~thickstn/mlp.html
 
 import numpy as np                                       # fast vectors and matrices
-import matplotlib.pyplot as plt                          # plotting
+# import matplotlib.pyplot as plt                          # plotting
 from scipy.fftpack import fft
 
 from intervaltree import Interval,IntervalTree
@@ -13,7 +13,7 @@ import tensorflow as tf
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import average_precision_score
 
-%matplotlib inline
+# %matplotlib inline
 
 
 d = 2048        # input dimensions
