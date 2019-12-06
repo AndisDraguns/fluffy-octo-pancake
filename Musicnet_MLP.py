@@ -36,8 +36,8 @@ for id in (2303,2382,1819): # test set
 train_ids = train_data.keys()
 test_ids = test_data.keys()
     
-print len(train_data)
-print len(test_data)
+print(len(train_data))
+print(len(test_data))
 
 
 # create the test set
@@ -86,7 +86,7 @@ train_step = opt.minimize(L)
 Xmb = np.empty([len(train_data),d])
 np.random.seed(999)
 start = time()
-print 'iter\tsquare_loss\tavg_precision\ttime'
+print('iter\tsquare_loss\tavg_precision\ttime')
 for i in xrange(250):
     if i % 1000 == 0 and (i != 0 or len(square_error) == 0):
         square_error.append(sess.run(L, feed_dict={x: Xtest, y_: Ytest})/Xtest.shape[0])
@@ -98,9 +98,9 @@ for i in xrange(250):
         
         if i % 10000 == 0:
             end = time()
-            print i,'\t', round(square_error[-1],8),\
-                    '\t', round(average_precision[-1],8),\
-                    '\t', round(end-start,8)
+            print(i,'\t', round(square_error[-1],8),
+                    '\t', round(average_precision[-1],8),
+                    '\t', round(end-start,8))
             start = time()
     
     Ymb = np.zeros([len(train_data),m])
